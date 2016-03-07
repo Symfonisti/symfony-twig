@@ -1,3 +1,12 @@
 {# index.html.twig #}
-My favourite movie: {{ movie1.title }}<br>
-My friend`s favourite movie: {{ movie2.title }}
+Quentin Tarantino`s movies: <br>
+<ul>
+	{% for movie in movies %}
+		<li>
+			{{ movie.title }}
+			{% if movie.comment is not null %}
+				- <i>{{ movie.comment }}</i>
+			{% endif %}
+		</li>
+	{% endfor %}
+</ul>

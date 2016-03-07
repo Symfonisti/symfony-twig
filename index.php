@@ -11,10 +11,17 @@ class Movie {
 	private $title;
 
 	/**
-	 * @param string $title
+	 * @var string|null
 	 */
-	public function __construct($title) {
+	private $comment;
+
+	/**
+	 * @param string $title
+	 * @param string|null $comment
+	 */
+	public function __construct($title, $comment = null) {
 		$this->title = $title;
+		$this->comment = $comment;
 	}
 
 	/**
@@ -24,15 +31,24 @@ class Movie {
 		return $this->title;
 	}
 
+	/**
+	 * @return string|null
+	 */
+	public function getComment() {
+		return $this->comment;
+	}
+
 }
 
 $loader = new Twig_Loader_Filesystem('Resources/views');
 $twig = new Twig_Environment($loader);
-$movieAsObject = new Movie('Kill Bill');
-$movieAsArray = ['title' => 'Matrix'];
+$movies = [
+	new Movie('Reservoir Dogs'),
+	new Movie('Jackie Brown'),
+	new Movie('Grindhouse'),
+	new Movie('Pulp Fiction', 'Oscar for Best Writing'),
+	new Movie('Kill Bill'),
+];
 echo $twig->render('index.html.twig', [
-	'movie1' => $movieAsObject,
-	'movie2' => $movieAsArray,
+	'movies' => $movies,
 ]);
-// My favourite movie: Kill Bill
-// My friend`s favourite movie: Matrix
