@@ -49,6 +49,4 @@ $movies = [
 	new Movie('Pulp Fiction', 'Oscar for Best Writing'),
 	new Movie('Kill Bill'),
 ];
-echo $twig->render('index.html.twig', [
-	'movies' => $movies,
-]);
+echo $twig->render('index.html.twig');
