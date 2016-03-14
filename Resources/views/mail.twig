@@ -1,0 +1,8 @@
+{# mail.twig #}
+{% block subject %}
+	Important massage for {{ fullName }}
+{% endblock %}
+
+{% block body %}
+	Hello {{ firstName }}! {{ mailBody }}
+{% endblock %}
