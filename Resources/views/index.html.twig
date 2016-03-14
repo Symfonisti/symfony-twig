@@ -1,7 +1,11 @@
 {# index.html.twig #}
 {% extends 'base.html.twig' %}
+{% import 'macro-example.html.twig' as menuMacro %}
 {% block title %}
-	Index page
+	Macro example
+{% endblock %}
+{% block menu %}
+	{{ menuMacro.menu(menuItems, menuClass) }}
 {% endblock %}
 {% block main_content %}
 	This is main content

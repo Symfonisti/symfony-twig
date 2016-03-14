@@ -42,11 +42,13 @@ class Movie {
 
 $loader = new Twig_Loader_Filesystem('Resources/views');
 $twig = new Twig_Environment($loader);
-$movies = [
-	new Movie('Reservoir Dogs'),
-	new Movie('Jackie Brown'),
-	new Movie('Grindhouse'),
-	new Movie('Pulp Fiction', 'Oscar for Best Writing'),
-	new Movie('Kill Bill'),
+$menuItems = [
+	'About us',
+	'Contact',
+	'Products',
 ];
-echo $twig->render('index.html.twig');
+$menuClass = 'main-menu';
+echo $twig->render('index.html.twig', [
+	'menuItems' => $menuItems,
+	'menuClass' => $menuClass,
+]);

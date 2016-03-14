@@ -1,0 +1,8 @@
+{# macro-example.html.twig #}
+{% macro menu(menuItems, cssClass) %}
+	<ul class="{{ cssClass }}">
+		{% for menuItem in menuItems %}
+			<li>{{ menuItem }}</li>
+		{% endfor %}
+	</ul>
+{% endmacro %}
