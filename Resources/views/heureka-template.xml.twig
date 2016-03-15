@@ -1,0 +1,24 @@
+{# heureka-template.xml.twig #}
+<?xml version="1.0" encoding="utf-8"?>
+<SHOP>
+
+	{% block item %}
+		<SHOPITEM>
+			<ITEM_ID>{{ item.itemId }}</ITEM_ID>
+			<PRODUCTNAME>{{ item.productName }}</PRODUCTNAME>
+			<DESCRIPTION>{{ item.description|striptags|replace("\n", ' ')|trim }}</DESCRIPTION>
+			<URL>{{ item.url }}</URL>
+			<PRICE_VAT>{{ item.priceVat|number_format(2, ',', '') }}</PRICE_VAT>
+				{% if item.ean -%}
+				<EAN>{{ item.ean }}</EAN>
+				{% endif -%}
+				{% for paramName, paramVal in item.params -%}
+				<PARAM>
+				<PARAM_NAME>{{ paramName }}</PARAM_NAME>
+				<VAL>{{ paramVal }}</VAL>
+				</PARAM>
+			{% endfor -%}
+		</SHOPITEM>
+	{% endblock %}
+
+</SHOP>
